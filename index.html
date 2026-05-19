@@ -1,167 +1,638 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Svatba Terky a Radka</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: #333;
-      line-height: 1.6;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    h1, h2 {
-      text-align: center;
+    html{
+      scroll-behavior:smooth;
     }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#111;
+      color:#f5f1eb;
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    h1,h2,h3{
+      font-family:'Cormorant Garamond',serif;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    section{
+      padding:100px 20px;
+      position:relative;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
     }
 
     /* HERO */
-    .hero {
-      height: 100vh;
-      background: url('hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+      url('hero.jpeg') center center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
     }
 
-    .hero-content {
-      background: rgba(0,0,0,0.4);
-      padding: 20px;
-      border-radius: 10px;
+    .hero-content{
+      max-width:900px;
+      padding:20px;
+      animation:fadeUp 1.4s ease;
     }
 
-    #countdown {
-      font-size: 1.5em;
-      margin-top: 10px;
+    .hero h1{
+      font-size:5rem;
+      margin-bottom:10px;
+      color:#fff;
+      text-shadow:0 4px 20px rgba(0,0,0,0.5);
     }
 
-    /* FORM */
-    .form-container iframe {
-      width: 100%;
-      height: 1200px;
-      border: none;
+    .hero .subtitle{
+      font-size:1.4rem;
+      margin-bottom:20px;
+      color:#e6d8c5;
     }
 
-    /* MAP */
-    .map iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
+    .hero .date{
+      font-size:1.1rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:50px;
+      color:#d6c1a4;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #c7a17a;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    .intro-text{
+      max-width:700px;
+      margin:0 auto 40px;
+      font-size:1.1rem;
+      color:#f3ede5;
     }
 
-    @media(max-width:600px){
-      .hero h1 {
-        font-size: 1.8em;
+    /* COUNTDOWN */
+
+    .countdown{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .count-box{
+      width:120px;
+      height:120px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+      border-radius:20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .count-box span{
+      font-size:2.3rem;
+      font-weight:600;
+      color:#fff;
+    }
+
+    .count-box small{
+      margin-top:5px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:0.75rem;
+      color:#d8c1a0;
+    }
+
+    /* CARD SECTIONS */
+
+    .card{
+      background:#1a1a1a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:30px;
+      padding:60px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    h2{
+      text-align:center;
+      font-size:3rem;
+      margin-bottom:25px;
+      color:#f8f2ea;
+    }
+
+    .section-text{
+      text-align:center;
+      max-width:800px;
+      margin:0 auto;
+      color:#ddd;
+    }
+
+    /* RSVP */
+
+    .form-wrapper{
+      margin-top:40px;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .form-wrapper iframe{
+      width:100%;
+      height:1200px;
+      border:none;
+      background:#fff;
+    }
+
+    /* LOCATION */
+
+    .location{
+      text-align:center;
+    }
+
+    .location p{
+      margin-bottom:10px;
+      color:#ddd;
+    }
+
+    .map{
+      margin-top:35px;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .map iframe{
+      width:100%;
+      height:400px;
+      border:none;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 30px;
+      border-radius:999px;
+      text-decoration:none;
+      background:#c9a97d;
+      color:#111;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#e0c39c;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      max-width:700px;
+      margin:50px auto 0;
+      position:relative;
+    }
+
+    .timeline:before{
+      content:'';
+      position:absolute;
+      left:50%;
+      top:0;
+      transform:translateX(-50%);
+      width:2px;
+      height:100%;
+      background:#c9a97d;
+      opacity:0.4;
+    }
+
+    .timeline-item{
+      position:relative;
+      margin-bottom:40px;
+      width:50%;
+      padding:0 40px;
+    }
+
+    .timeline-item:nth-child(odd){
+      left:0;
+      text-align:right;
+    }
+
+    .timeline-item:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-dot{
+      width:16px;
+      height:16px;
+      background:#d9b88f;
+      border-radius:50%;
+      position:absolute;
+      top:8px;
+      right:-8px;
+      box-shadow:0 0 15px rgba(217,184,143,0.7);
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot{
+      left:-8px;
+    }
+
+    .time{
+      color:#d9b88f;
+      font-weight:600;
+      margin-bottom:5px;
+    }
+
+    .timeline-content{
+      background:#191919;
+      padding:20px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* DRESS + GIFTS */
+
+    .info-box{
+      max-width:800px;
+      margin:0 auto;
+      text-align:center;
+      color:#ddd;
+      font-size:1.05rem;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:60px 20px;
+      color:#aaa;
+      font-size:0.95rem;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .count-box{
+        width:90px;
+        height:90px;
+      }
+
+      .count-box span{
+        font-size:1.8rem;
+      }
+
+      .card{
+        padding:35px 25px;
+      }
+
+      h2{
+        font-size:2.4rem;
+      }
+
+      .timeline:before{
+        left:20px;
+      }
+
+      .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        padding-right:0;
+        text-align:left !important;
+      }
+
+      .timeline-dot{
+        left:12px !important;
+        right:auto;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Svatba Terky a Radka</h1>
-    <p>Tereza Bělinová & Radek Brynych</p>
-    <p>8. srpna 2026 ve 12:00</p>
-    <p id="countdown"></p>
-  </div>
-</section>
+  <!-- HERO -->
 
-<!-- RSVP -->
-<section>
-  <h2>Potvrzení účasti 💍</h2>
-  <p>Prosíme o potvrzení účasti co nejdříve.</p>
+  <section class="hero">
 
-  <div class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflNDnWhg1QFBP4k4oFYfx6ciEsypwECiogigib5iVdOB3QuQ/viewform?embedded=true">
-    </iframe>
-  </div>
-</section>
+    <div class="hero-content">
 
-<!-- INFO -->
-<section>
-  <h2>Kdy a kde</h2>
-  <p><strong>Pančavský mlýn, Zbraslavice</strong></p>
-  <p>Obřad začíná ve 12:00</p>
+      <h1>Svatba Terky a Radka</h1>
 
-  <div class="map">
-    <iframe src="https://maps.google.com/maps?q=Pančavský%20mlýn%20Zbraslavice&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </div>
+      <p class="subtitle">
+        Tereza Bělinová & Radek Brynych
+      </p>
 
-  <p style="text-align:center;">
-    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Pančavský+mlýn+Zbraslavice" target="_blank">
-      Navigovat 📍
-    </a>
-  </p>
-</section>
+      <p class="date">
+        8. srpna 2026 • 12:00
+      </p>
 
-<!-- HARMONOGRAM -->
-<section>
-  <h2>Harmonogram</h2>
-  <p>11:00 – příjezd hostů</p>
-  <p>12:00 – obřad</p>
-  <p>12:30 – focení</p>
-  <p>13:30 – oběd</p>
-  <p>15:00 – první tanec</p>
-  <p>Poté volná zábava, tanec a hry (dokud vydržíte 😄)</p>
-</section>
+      <p class="intro-text">
+        Tímto Vás zveme na naši svatbu a doufáme,
+        že si s námi přijedete užít tento důležitý den.
+        Budeme se těšit ❤️
+      </p>
 
-<!-- DRESS CODE -->
-<section>
-  <h2>Dress code</h2>
-  <p>
-    Doporučujeme klasické svatební oblečení (oblek, šaty).<br>
-    Odpoledne po 15:00 můžete zvolit pohodlnější variantu (např. smart casual).
-  </p>
-</section>
+      <div class="countdown">
 
-<!-- DARY -->
-<section>
-  <h2>Dary</h2>
-  <p>
-    Největším darem pro nás bude, když dorazíte a užijete si s námi náš den.<br>
-    Pokud byste nás chtěli obdarovat, budeme rádi za peněžitý dar.
-  </p>
-</section>
+        <div class="count-box">
+          <span id="days">0</span>
+          <small>Dní</small>
+        </div>
 
-<script>
-  const countdown = document.getElementById("countdown");
-  const weddingDate = new Date("Aug 8, 2026 12:00:00").getTime();
+        <div class="count-box">
+          <span id="hours">0</span>
+          <small>Hodin</small>
+        </div>
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
+        <div class="count-box">
+          <span id="minutes">0</span>
+          <small>Minut</small>
+        </div>
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
+        <div class="count-box">
+          <span id="seconds">0</span>
+          <small>Sekund</small>
+        </div>
 
-    countdown.innerHTML = `Do svatby zbývá: ${d}d ${h}h ${m}m ${s}s`;
-  }, 1000);
-</script>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- RSVP -->
+
+  <section>
+    <div class="container">
+      <div class="card">
+
+        <h2>Potvrzení účasti</h2>
+
+        <p class="section-text">
+          Prosíme o potvrzení účasti co nejdříve.
+          Budeme rádi, když vyplníte krátký formulář níže.
+        </p>
+
+        <div class="form-wrapper">
+
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflNDnWhg1QFBP4k4oFYfx6ciEsypwECiogigib5iVdOB3QuQ/viewform?embedded=true">
+            Načítání…
+          </iframe>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+
+  <section>
+    <div class="container">
+
+      <div class="card location">
+
+        <h2>Kdy a kde</h2>
+
+        <p><strong>Pančavský mlýn, Zbraslavice</strong></p>
+        <p>Obřad začíná ve 12:00</p>
+
+        <div class="map">
+
+          <iframe
+            src="https://maps.google.com/maps?q=Pančavský%20mlýn%20Zbraslavice&t=&z=13&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+
+        </div>
+
+        <a class="btn"
+           href="https://www.google.com/maps/search/?api=1&query=Pančavský+mlýn+Zbraslavice"
+           target="_blank">
+
+          Navigovat 📍
+
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="card">
+
+        <h2>Harmonogram</h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">11:00</div>
+              <p>Příjezd hostů</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">12:00</div>
+              <p>Obřad</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">12:30</div>
+              <p>Focení</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">13:30</div>
+              <p>Oběd</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">15:00</div>
+              <p>První tanec</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="time">Odpoledne & večer</div>
+              <p>Volná zábava, tanec a hry (dokud vydržíte 😄)</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DRESS CODE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="card">
+
+        <h2>Dress code</h2>
+
+        <div class="info-box">
+
+          <p>
+            Doporučujeme klasické svatební oblečení
+            (oblek, šaty).
+          </p>
+
+          <br>
+
+          <p>
+            Odpoledne po 15:00 můžete zvolit pohodlnější variantu,
+            například smart casual.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GIFTS -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="card">
+
+        <h2>Dary</h2>
+
+        <div class="info-box">
+
+          <p>
+            Největším darem pro nás bude,
+            když dorazíte a užijete si s námi náš den ❤️
+          </p>
+
+          <br>
+
+          <p>
+            Pokud byste nás chtěli obdarovat,
+            budeme rádi za peněžitý dar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    Tereza Bělinová & Radek Brynych • 2026 💍
+  </footer>
+
+  <!-- COUNTDOWN SCRIPT -->
+
+  <script>
+
+    const weddingDate = new Date("2026-08-08T12:00:00").getTime();
+
+    const updateCountdown = () => {
+
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+    };
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+  </script>
 
 </body>
 </html>
