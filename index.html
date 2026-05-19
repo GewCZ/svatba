@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svatba Terky a Radka</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content {
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+    /* FORM */
+    .form-container iframe {
+      width: 100%;
+      height: 1200px;
+      border: none;
+    }
+
+    /* MAP */
+    .map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #c7a17a;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    @media(max-width:600px){
+      .hero h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Svatba Terky a Radka</h1>
+    <p>Tereza Bělinová & Radek Brynych</p>
+    <p>8. srpna 2026 ve 12:00</p>
+    <p id="countdown"></p>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section>
+  <h2>Potvrzení účasti 💍</h2>
+  <p>Prosíme o potvrzení účasti co nejdříve.</p>
+
+  <div class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflNDnWhg1QFBP4k4oFYfx6ciEsypwECiogigib5iVdOB3QuQ/viewform?embedded=true">
+    </iframe>
+  </div>
+</section>
+
+<!-- INFO -->
+<section>
+  <h2>Kdy a kde</h2>
+  <p><strong>Pančavský mlýn, Zbraslavice</strong></p>
+  <p>Obřad začíná ve 12:00</p>
+
+  <div class="map">
+    <iframe src="https://maps.google.com/maps?q=Pančavský%20mlýn%20Zbraslavice&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  </div>
+
+  <p style="text-align:center;">
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Pančavský+mlýn+Zbraslavice" target="_blank">
+      Navigovat 📍
+    </a>
+  </p>
+</section>
+
+<!-- HARMONOGRAM -->
+<section>
+  <h2>Harmonogram</h2>
+  <p>11:00 – příjezd hostů</p>
+  <p>12:00 – obřad</p>
+  <p>12:30 – focení</p>
+  <p>13:30 – oběd</p>
+  <p>15:00 – první tanec</p>
+  <p>Poté volná zábava, tanec a hry (dokud vydržíte 😄)</p>
+</section>
+
+<!-- DRESS CODE -->
+<section>
+  <h2>Dress code</h2>
+  <p>
+    Doporučujeme klasické svatební oblečení (oblek, šaty).<br>
+    Odpoledne po 15:00 můžete zvolit pohodlnější variantu (např. smart casual).
+  </p>
+</section>
+
+<!-- DARY -->
+<section>
+  <h2>Dary</h2>
+  <p>
+    Největším darem pro nás bude, když dorazíte a užijete si s námi náš den.<br>
+    Pokud byste nás chtěli obdarovat, budeme rádi za peněžitý dar.
+  </p>
+</section>
+
+<script>
+  const countdown = document.getElementById("countdown");
+  const weddingDate = new Date("Aug 8, 2026 12:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    countdown.innerHTML = `Do svatby zbývá: ${d}d ${h}h ${m}m ${s}s`;
+  }, 1000);
+</script>
+
+</body>
+</html>
