@@ -1,1 +1,187 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>index_v3</title></head><body><h1>V3 generated</h1><p>Nahraď tímto souborem původní index a doplň plný kód z chatu.</p></body></html>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Svatba Terky a Radka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --rose:#C9A3A3;
+ --rose-dark:#A87575;
+ --eucalyptus:#8FA89A;
+ --cream:#FAF7F2;
+ --cream2:#F4ECE8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,sans-serif;background:var(--cream);color:#444;line-height:1.7}
+h1,h2{font-family:"Cormorant Garamond",serif}
+section{padding:80px 20px}
+.container{max-width:1100px;margin:auto}
+
+.hero{
+ position:relative;height:100vh;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.hero-image{
+ position:absolute;top:0;left:0;width:100%;height:120%;
+ object-fit:cover;object-position:center center;
+ z-index:1;transition:transform .1s linear;
+}
+.hero-overlay{
+ position:absolute;inset:0;
+ background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65));
+ z-index:2;
+}
+.hero-content{position:relative;z-index:3;color:#fff;padding:20px;max-width:900px}
+.hero h1{font-size:5rem;margin-bottom:10px}
+.subtitle{font-size:1.4rem}
+.date{letter-spacing:2px;margin:15px 0 35px}
+.intro-text{max-width:700px;margin:auto}
+
+.countdown{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:35px}
+.count-box{
+ background:rgba(255,255,255,.12);
+ backdrop-filter:blur(8px);
+ border-radius:18px;
+ min-width:95px;padding:16px;
+}
+.count-box span{display:block;font-size:2rem;font-weight:700}
+
+.divider{text-align:center;font-size:2rem;color:var(--eucalyptus)}
+
+h2{font-size:3rem;text-align:center;color:var(--rose-dark);margin-bottom:20px}
+.alt{background:var(--cream2)}
+.center{text-align:center}
+
+.form-wrapper iframe{
+ width:100%;height:1200px;border:none;background:#fff;border-radius:12px;
+}
+
+.map iframe{
+ width:100%;height:400px;border:none;border-radius:12px;
+}
+
+.btn{
+ display:inline-block;
+ background:var(--eucalyptus);
+ color:#fff;text-decoration:none;
+ padding:12px 24px;border-radius:30px;margin-top:20px;
+}
+
+.timeline{max-width:700px;margin:auto}
+.timeline-item{
+ border-left:3px solid var(--eucalyptus);
+ padding-left:20px;margin:20px 0;
+}
+.time{font-weight:700;color:var(--rose-dark)}
+
+footer{text-align:center;padding:40px;color:#777}
+
+@media(max-width:768px){
+ .hero h1{font-size:3rem}
+ .hero-image{object-position:center 30%}
+ .count-box{min-width:80px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<img src="hero.jpeg" class="hero-image" alt="Tereza a Radek">
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>Svatba Terky a Radka</h1>
+<p class="subtitle">Tereza Bělinová &amp; Radek Brynych</p>
+<p class="date">8. srpna 2026 • 12:00</p>
+<p class="intro-text">Tímto Vás zveme na naši svatbu a doufáme, že si s námi přijedete užít tento důležitý den. Budeme se těšit ❤️</p>
+
+<div class="countdown">
+<div class="count-box"><span id="days">0</span>Dní</div>
+<div class="count-box"><span id="hours">0</span>Hodin</div>
+<div class="count-box"><span id="minutes">0</span>Minut</div>
+<div class="count-box"><span id="seconds">0</span>Sekund</div>
+</div>
+</div>
+</section>
+
+<div class="divider">❦</div>
+
+<section>
+<div class="container">
+<h2>Potvrzení účasti</h2>
+<p class="center">Prosíme o potvrzení účasti co nejdříve.</p>
+<div class="form-wrapper">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflNDnWhg1QFBP4k4oFYfx6ciEsypwECiogigib5iVdOB3QuQ/viewform?embedded=true"></iframe>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="container center">
+<h2>Kdy a kde</h2>
+<p><strong>Pančavský mlýn, Zbraslavice</strong></p>
+<p>Obřad začíná ve 12:00</p>
+<p>Sejdeme se na místě kolem 11:00 a parkovat můžete v místě konání svatby.</p>
+<div class="map" style="margin-top:20px">
+<iframe src="https://maps.google.com/maps?q=Pančavský%20mlýn%20Zbraslavice&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Pančavský+mlýn+Zbraslavice" target="_blank">Navigovat 📍</a>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Harmonogram</h2>
+<div class="timeline">
+<div class="timeline-item"><div class="time">11:00</div>Příjezd hostů</div>
+<div class="timeline-item"><div class="time">12:00</div>Obřad</div>
+<div class="timeline-item"><div class="time">13:00</div>Oběd</div>
+<div class="timeline-item"><div class="time">14:00</div>Focení</div>
+<div class="timeline-item"><div class="time">16:00</div>První tanec</div>
+<div class="timeline-item"><div class="time">Odpoledne & večer</div>Volná zábava, tanec a hry (dokud vydržíte 😄)</div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="container center">
+<h2>Dress code</h2>
+<p>Doporučujeme elegantní a slavnostní oděv.</p>
+<p>V pozdějších odpoledních hodinách můžete zvolit pohodlnější oděv, například smart casual.</p>
+</div>
+</section>
+
+<section>
+<div class="container center">
+<h2>Dary</h2>
+<p>Největším darem pro nás bude, když dorazíte a užijete si s námi náš den ❤️</p>
+<p>Pokud byste nás chtěli obdarovat, budeme rádi za peněžitý dar.</p>
+</div>
+</section>
+
+<footer>Tereza Bělinová &amp; Radek Brynych • 2026 💍</footer>
+
+<script>
+const weddingDate=new Date("2026-08-08T12:00:00").getTime();
+function updateCountdown(){
+const now=new Date().getTime();
+const diff=weddingDate-now;
+document.getElementById("days").innerText=Math.floor(diff/(1000*60*60*24));
+document.getElementById("hours").innerText=Math.floor((diff/(1000*60*60))%24);
+document.getElementById("minutes").innerText=Math.floor((diff/(1000*60))%60);
+document.getElementById("seconds").innerText=Math.floor((diff/1000)%60);
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+const heroImage=document.querySelector('.hero-image');
+window.addEventListener('scroll',()=>{
+heroImage.style.transform=`translateY(${window.scrollY*0.25}px)`;
+});
+</script>
+</body>
+</html>
