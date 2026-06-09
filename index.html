@@ -89,20 +89,11 @@ footer{text-align:center;padding:40px;color:#777}
 @media(max-width:768px){
 
  .hero{
-   height:85vh;
+   height:100vh;
  }
 
  .hero h1{
-   font-size:2.5rem;
-   line-height:1.1;
- }
-
- .subtitle{
-   font-size:1.1rem;
- }
-
- .date{
-   font-size:0.95rem;
+   font-size:3rem;
  }
 
  .hero-image{
@@ -110,34 +101,87 @@ footer{text-align:center;padding:40px;color:#777}
  }
 
  .count-box{
-   min-width:70px;
-   padding:12px;
+   min-width:80px;
  }
 
- .count-box span{
-   font-size:1.5rem;
- .count-box{min-width:80px}
+ .hero-content{
+   height:100%;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   padding-top:40px;
+   padding-bottom:30px;
+ }
+
+ .hero-title{
+   margin-top:20px;
+ }
+
+ .hero-bottom{
+   margin-top:auto;
+ }
+
 }
 </style>
 </head>
 <body>
 
 <section class="hero">
-<img src="hero.jpeg" class="hero-image" alt="Tereza a Radek">
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<h1>Svatba Terky a Radka</h1>
-<p class="subtitle">Tereza Bělinová &amp; Radek Brynych</p>
-<p class="date">8. srpna 2026 • 12:00</p>
-<p class="intro-text">Tímto Vás zveme na naši svatbu a doufáme, že si s námi přijedete užít tento důležitý den. Budeme se těšit ❤️</p>
 
-<div class="countdown">
-<div class="count-box"><span id="days">0</span>Dní</div>
-<div class="count-box"><span id="hours">0</span>Hodin</div>
-<div class="count-box"><span id="minutes">0</span>Minut</div>
-<div class="count-box"><span id="seconds">0</span>Sekund</div>
+<img src="hero.jpeg" class="hero-image" alt="Tereza a Radek">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+  <h1 class="hero-title">
+    Svatba Terky a Radka
+  </h1>
+
+  <div class="hero-bottom">
+
+    <p class="subtitle">
+      Tereza Bělinová & Radek Brynych
+    </p>
+
+    <p class="date">
+      8. srpna 2026 • 12:00
+    </p>
+
+    <p class="intro-text">
+      Tímto Vás zveme na naši svatbu a doufáme,
+      že si s námi přijedete užít tento důležitý den.
+      Budeme se těšit ❤️
+    </p>
+
+    <div class="countdown">
+
+      <div class="count-box">
+        <span id="days">0</span>
+        Dní
+      </div>
+
+      <div class="count-box">
+        <span id="hours">0</span>
+        Hodin
+      </div>
+
+      <div class="count-box">
+        <span id="minutes">0</span>
+        Minut
+      </div>
+
+      <div class="count-box">
+        <span id="seconds">0</span>
+        Sekund
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-</div>
+
 </section>
 
 <div class="divider">❦</div>
